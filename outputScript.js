@@ -1,30 +1,30 @@
-import { bNouns } from './bNouns.js';
-import { bVerbs } from './bVerbs.js';
-import { bAdjectives } from './bAdjectives.js';
-import { bAdverbs } from './bAdverbs.js';
+import { bNouns } from './B/bNouns.js';
+import { bVerbs } from './B/bVerbs.js';
+import { bAdjectives } from './B/bAdjectives.js';
+import { bAdverbs } from './B/bAdverbs.js';
 
-import { oNouns } from './oNouns.js';
-import { oVerbs } from './oVerbs.js';
-import { oAdjectives } from './oAdjectives.js';
-import { oAdverbs } from './oAdverbs.js';
+import { oNouns } from './O/oNouns.js';
+import { oVerbs } from './O/oVerbs.js';
+import { oAdjectives } from './O/oAdjectives.js';
+import { oAdverbs } from './O/oAdverbs.js';
 
-import { dNouns } from './dNouns.js';
-import { dVerbs } from './dVerbs.js';
-import { dAdjectives } from './dAdjectives.js';
-import { dAdverbs } from './dAdverbs.js';
+import { dNouns } from './D/dNouns.js';
+import { dVerbs } from './D/dVerbs.js';
+import { dAdjectives } from './D/dAdjectives.js';
+import { dAdverbs } from './D/dAdverbs.js';
 
-import { yNouns } from './yNouns.js';
-import { yVerbs } from './yVerbs.js';
-import { yAdjectives } from './yAdjectives.js';
-import { yAdverbs } from './yAdverbs.js';
+import { yNouns } from './Y/yNouns.js';
+import { yVerbs } from './Y/yVerbs.js';
+import { yAdjectives } from './Y/yAdjectives.js';
+import { yAdverbs } from './Y/yAdverbs.js';
 
 /**
  * What kind of structure should there be?
  * Maybe there are a couple of different structures and each
  * day we randomly choose one, as well as randomly creating the acronym.
  *
- * B        O      B      O        D      D      Y
- * adverb, verb, noun, adjective, noun, verb, noun
+ * B        O      B      O        D      D         Y
+ * adverb, verb, noun, adjective, noun, adjective, noun
  */
 
 const toTitleCase = (str) =>
@@ -60,7 +60,7 @@ const acronym = () => {
   ${bNoun}
   ${oAdjective}
   ${dNoun}
-  ${dVerb}
+  ${dAdjective}
   ${yNoun}
   `;
 
