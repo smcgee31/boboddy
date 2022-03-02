@@ -27,11 +27,22 @@ import { yAdverbs } from './Y/yAdverbs.js';
  * adverb, verb, noun, adjective, noun, adjective, noun
  */
 
-const toTitleCase = (str) =>
-  str
+const toTitleCase = (str) => {
+  const result = str
     .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
     .map((x) => x.charAt(0).toUpperCase() + x.slice(1))
     .join(' ');
+
+  return result;
+};
+
+const getBNoun = () => {
+  const word = bNouns[Math.floor(Math.random() * bNouns.length)];
+  const result = word.charAt(0).toUpperCase() + word.slice(1);
+  console.log('🚧 🚧 🚧  ~ file: outputScript.js ~ line 42 ~ result', result);
+  return result;
+};
+getBNoun();
 
 const acronym = () => {
   const bNoun = bNouns[Math.floor(Math.random() * bNouns.length)];
