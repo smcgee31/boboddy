@@ -1,30 +1,31 @@
-import { bNouns } from './B/bNouns.js';
-import { bVerbs } from './B/bVerbs.js';
-import { bAdjectives } from './B/bAdjectives.js';
-import { bAdverbs } from './B/bAdverbs.js';
+import { bNouns } from './words/nouns/bNouns.js';
+import { bVerbs } from './words/verbs/bVerbs.js';
+import { bAdjectives } from './words/adjectives/bAdjectives.js';
+import { bAdverbs } from './words/adverbs/bAdverbs.js';
 
-import { oNouns } from './O/oNouns.js';
-import { oVerbs } from './O/oVerbs.js';
-import { oAdjectives } from './O/oAdjectives.js';
-import { oAdverbs } from './O/oAdverbs.js';
+import { oNouns } from './words/nouns/oNouns.js';
+import { oVerbs } from './words/verbs/oVerbs.js';
+import { oAdjectives } from './words/adjectives/oAdjectives.js';
+import { oAdverbs } from './words/adverbs/oAdverbs.js';
 
-import { dNouns } from './D/dNouns.js';
-import { dVerbs } from './D/dVerbs.js';
-import { dAdjectives } from './D/dAdjectives.js';
-import { dAdverbs } from './D/dAdverbs.js';
+import { dNouns } from './words/nouns/dNouns.js';
+import { dVerbs } from './words/verbs/dVerbs.js';
+import { dAdjectives } from './words/adjectives/dAdjectives.js';
+import { dAdverbs } from './words/adverbs/dAdverbs.js';
 
-import { yNouns } from './Y/yNouns.js';
-import { yVerbs } from './Y/yVerbs.js';
-import { yAdjectives } from './Y/yAdjectives.js';
-import { yAdverbs } from './Y/yAdverbs.js';
+import { yNouns } from './words/nouns/yNouns.js';
+import { yVerbs } from './words/verbs/yVerbs.js';
+import { yAdjectives } from './words/adjectives/yAdjectives.js';
+import { yAdverbs } from './words/adverbs/yAdverbs.js';
 
 /**
  * What kind of structure should there be?
  * Maybe there are a couple of different structures and each
  * day we randomly choose one, as well as randomly creating the acronym.
  *
- * B        O      B      O        D      D         Y
- * adverb, verb, noun, adjective, noun, adjective, noun
+ *      B          O       B       O          D      D        Y
+ * 1. adverb,    verb,    noun,   adjective, noun, adjective, noun
+ * 2. adjective, noun(s), adverb, verb,      noun, adjective, noun
  */
 
 const toTitleCase = (str) => {
@@ -65,11 +66,12 @@ const acronym = () => {
   const yAdjective = yAdjectives[Math.floor(Math.random() * yAdjectives.length)];
   const yAdverb = yAdverbs[Math.floor(Math.random() * yAdverbs.length)];
 
+  // #2
   const result = `
+  ${bAdjective}
+  ${oNoun}s
   ${bAdverb}
   ${oVerb}
-  ${bNoun}
-  ${oAdjective}
   ${dNoun}
   ${dAdjective}
   ${yNoun}
