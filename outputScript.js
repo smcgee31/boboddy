@@ -1,14 +1,17 @@
 import { nouns, verbs, adjectives, adverbs } from './words';
 
 /**
+ * This BOBODDY  acronym word builder can be found at `www.creedthoughts.gov.www/creedthoughts`
+ *
  * What kind of structure should there be?
- * Maybe there are a couple of different structures and each
- * day we randomly choose one, as well as randomly creating the acronym.
  *
  *      B          O       B       O          D      D        Y
  * 1. adverb,    verb,    noun,   adjective, noun, adjective, noun
- * 2. adjective, noun(s), adverb, verb,      noun, adjective, noun
+ * 2. adjective, noun, adverb, verb,      noun, adjective, noun
  */
+
+// Acronym words to build
+const toBuild = 'boboddy';
 
 const getWord = (type, letter) => {
   switch (type) {
@@ -24,7 +27,6 @@ const getWord = (type, letter) => {
       break;
   }
 };
-getWord('verbs', 'b');
 
 const acronym = ({ letters, pattern, isBiznus }) => {
   if (letters.length !== pattern.length) {
@@ -47,8 +49,20 @@ const acronym = ({ letters, pattern, isBiznus }) => {
   return result;
 };
 
+const randomPattern = (num) => {
+  const options = ['noun', 'verb', 'adjective', 'adverb'];
+  const pattern = [];
+  for (let i = 0; i < num; i++) {
+    pattern.push(options[Math.floor(Math.random() * options.length)]);
+  }
+  return pattern;
+};
+
+// Set you pattern to be a random pattern or a specific pattern
+// Set the first word to honor Creed's first word: "Biznus"
 acronym({
-  letters: 'boboddy',
-  pattern: ['adjective', 'noun', 'adverb', 'verb', 'noun', 'adjective', 'noun'],
+  letters: toBuild,
+  // pattern: ['adjective', 'noun', 'adverb', 'verb', 'noun', 'adjective', 'noun'],
+  pattern: randomPattern(toBuild.length),
   isBiznus: false,
 });
