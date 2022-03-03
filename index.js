@@ -1,4 +1,5 @@
-import { nouns, verbs, adjectives, adverbs } from './words';
+import randomPattern from './utils/random-pattern.js';
+import getWord from './utils/get-word.js';
 
 /**
  * This BOBODDY  acronym word builder can be found at `www.creedthoughts.gov.www/creedthoughts`
@@ -12,21 +13,6 @@ import { nouns, verbs, adjectives, adverbs } from './words';
 
 // Acronym words to build
 const toBuild = 'boboddy';
-
-const getWord = (type, letter) => {
-  switch (type) {
-    case 'noun':
-      return nouns[letter][Math.floor(Math.random() * nouns[letter].length)];
-    case 'verb':
-      return verbs[letter][Math.floor(Math.random() * verbs[letter].length)];
-    case 'adjective':
-      return adjectives[letter][Math.floor(Math.random() * adjectives[letter].length)];
-    case 'adverb':
-      return adverbs[letter][Math.floor(Math.random() * adverbs[letter].length)];
-    default:
-      break;
-  }
-};
 
 const acronym = ({ letters, pattern, isBiznus }) => {
   if (letters.length !== pattern.length) {
@@ -44,22 +30,12 @@ const acronym = ({ letters, pattern, isBiznus }) => {
   if (isBiznus) {
     result = result.replace(/^\w+/, 'Biznus');
   }
-
-  console.log('🚧 🚧 🚧  ~ file: outputScript.js ~ line 48 ~ result', result);
+  console.log(result);
   return result;
 };
 
-const randomPattern = (num) => {
-  const options = ['noun', 'verb', 'adjective', 'adverb'];
-  const pattern = [];
-  for (let i = 0; i < num; i++) {
-    pattern.push(options[Math.floor(Math.random() * options.length)]);
-  }
-  return pattern;
-};
-
 // Set you pattern to be a random pattern or a specific pattern
-// Set the first word to honor Creed's first word: "Biznus"
+// Set the first word to honor, or not, Creed's first word: "Biznus"
 acronym({
   letters: toBuild,
   // pattern: ['adjective', 'noun', 'adverb', 'verb', 'noun', 'adjective', 'noun'],

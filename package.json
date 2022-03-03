@@ -1,0 +1,23 @@
+{
+  "name": "boboddy",
+  "version": "0.1.0",
+  "description": "The BOBODDY Team acronym word generator",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=16.14.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smcgee31/boboddy.git"
+  },
+  "author": "Steve McGee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smcgee31/boboddy/issues"
+  },
+  "homepage": "https://github.com/smcgee31/boboddy#readme"
+}
