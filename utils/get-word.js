@@ -11,6 +11,7 @@ export default (type, letter) => {
     case 'adverb':
       return adverbs[letter][Math.floor(Math.random() * adverbs[letter].length)];
     default:
+      throw new Error(`${type} is not currently a valid type`);
       break;
   }
 };
